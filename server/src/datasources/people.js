@@ -14,7 +14,10 @@ class StarwarsAPI extends RESTDataSource {
 			console.log(error);
 		}
 	}
-
+	async getPersonByName({ personName }) {
+		const { results } = await this.get('people', { name: personName });
+		return await this.peopleReducer(results[0]);
+	}
 	peopleReducer(data) {
 		return {
 			cursor: uuidv4(),

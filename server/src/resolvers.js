@@ -18,6 +18,9 @@ const resolvers = {
 					? people[people.length - 1].cursor !== allPeople[allPeople.length - 1].cursor
 					: false
 			};
+		},
+		individual: (_, { name }, { dataSources }) => {
+			return dataSources.starwarsAPI.getPersonByName({ personName: name });
 		}
 	}
 };
