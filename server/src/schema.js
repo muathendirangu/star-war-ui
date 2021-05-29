@@ -15,7 +15,7 @@ const typeDefs = gql`
             """
             cursor: String
         ):PersonConnection!
-        individual(name:String!):Person
+        individual(name:String!):[Person]
     }
     """
     An object of type person for a starwars character

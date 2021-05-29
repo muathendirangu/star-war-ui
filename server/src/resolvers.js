@@ -19,8 +19,10 @@ const resolvers = {
 					: false
 			};
 		},
-		individual: (_, { name }, { dataSources }) => {
-			return dataSources.starwarsAPI.getPersonByName({ personName: name });
+		individual: async (_, { name }, { dataSources }) => {
+			const people = await dataSources.starwarsAPI.getPeople();
+			const person = await people.filter((i) => i.name == name);
+			return person;
 		}
 	}
 };
