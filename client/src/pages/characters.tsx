@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Container, Grid, Heading } from '@chakra-ui/react';
+import { Container, Grid, Heading, Flex, Stack, Button } from '@chakra-ui/react';
+import { MdExpandMore } from 'react-icons/md';
 import { useQuery } from '@apollo/client';
 import { RouteComponentProps } from '@reach/router';
 import Card from '../components/card';
@@ -18,6 +19,8 @@ const Characters: React.FC<PeopleProps> = () => {
 
 	if (loading) return <div>Loading</div>;
 	if (error || !data) return <p>ERROR</p>;
+	console.log(data);
+
 	return (
 		<React.Fragment>
 			<Container centerContent maxW="xl" py="4" mt="40">
@@ -45,19 +48,27 @@ const Characters: React.FC<PeopleProps> = () => {
 						(isLoadingMore ? (
 							<div>Loading</div>
 						) : (
-							<button
-								onClick={async () => {
-									setIsLoadingMore(true);
-									await fetchMore({
-										variables: {
-											cursor: data.people.cursor
-										}
-									});
-									setIsLoadingMore(false);
-								}}
-							>
-								Load More
-							</button>
+							<Flex justifyContent="center" mt={5}>
+								<Stack>
+									<Button
+										bg="blue.200"
+										color="gray.800"
+										_hover={{ bg: 'green.400', color: 'white' }}
+										onClick={async () => {
+											setIsLoadingMore(true);
+											await fetchMore({
+												variables: {
+													cursor: data.people.cursor
+												}
+											});
+											setIsLoadingMore(false);
+										}}
+									>
+										{<MdExpandMore />}
+										Load more
+									</Button>
+								</Stack>
+							</Flex>
 						))}
 				</Grid>
 			</Container>

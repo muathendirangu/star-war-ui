@@ -1,6 +1,6 @@
 module.exports.paginateResults = ({
 	cursor,
-	pageSize = 3,
+	pageSize = 10,
 	results,
 	// can pass in a function to calculate an item's cursor
 	getCursor = () => null

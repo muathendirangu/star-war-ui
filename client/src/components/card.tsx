@@ -37,22 +37,10 @@ const Card: React.FC<CardProps> = ({ person }) => {
 				<br />
 
 				<Box mt="1" as="h4" lineHeight="tight" isTruncated>
-					This is my gender{' '}
-					<Box as="span" fontWeight="semibold" color="gray.600" ml="2" fontSize="sm">
-						{gender}
-					</Box>
+					I am a character at Starwars
 				</Box>
 
-				<Box>
-					I belong to {homeworld}
-					<Box as="span" color="gray.600" ml="2" fontSize="sm">
-						planet
-					</Box>
-				</Box>
-
-				<Box>
-					I weigh around {mass} kgs and my height is {height}
-				</Box>
+				<Box>click the button below to view more details about me</Box>
 				<Flex justifyContent="center" mt={5}>
 					<Stack>
 						<Button

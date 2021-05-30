@@ -16,7 +16,7 @@ class StarwarsAPI extends RESTDataSource {
 	}
 	peopleReducer(data) {
 		return {
-			cursor: uuidv4(),
+			cursor: data && data.height,
 			id: uuidv4(),
 			name: data && data.name,
 			height: data && data.height,
