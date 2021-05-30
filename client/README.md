@@ -1,1 +1,1 @@
-starwas client
+starwars client
