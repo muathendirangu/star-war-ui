@@ -1,12 +1,16 @@
 import React from 'react';
 import { Flex, Input } from '@chakra-ui/react';
 
-const Search = (props: any) => {
+interface SearchProps {
+	placeholder: string;
+}
+
+const Search: React.FC<SearchProps> = ({ placeholder }) => {
 	return (
 		<form>
 			<Flex>
 				<Input
-					placeholder={props.placeholder}
+					placeholder={placeholder}
 					h={14}
 					w={[ '80vw', '76vw', '60vw', '40vw' ]}
 					borderWidth={2}

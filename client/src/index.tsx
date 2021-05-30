@@ -4,7 +4,6 @@ import { ApolloClient, NormalizedCacheObject, ApolloProvider } from '@apollo/cli
 import { ChakraProvider } from '@chakra-ui/react';
 import starwarsTheme from '../src/themes/theme';
 import { cache } from './cache';
-import './index.css';
 import App from '../src/pages/index';
 import reportWebVitals from './reportWebVitals';
 

@@ -8,7 +8,7 @@ interface CardProps {
 }
 const Card: React.FC<CardProps> = ({ person }) => {
 	const duration = 150;
-	const { name, height, mass, gender, homeworld } = person;
+	const { name } = person;
 	return (
 		<Box
 			maxW="xl"

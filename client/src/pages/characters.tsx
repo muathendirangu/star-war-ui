@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
-import { Container, Grid, Heading, Flex, Stack, Button } from '@chakra-ui/react';
+import { Container, Grid, Heading, Flex, Stack, Button, Spinner } from '@chakra-ui/react';
 import { MdExpandMore } from 'react-icons/md';
 import { useQuery } from '@apollo/client';
 import { RouteComponentProps } from '@reach/router';
 import Card from '../components/card';
-import Search from '../components/search';
 import * as GetPeopleListTypes from '../graphql/__generated__/GetPeople';
 import { GET_PEOPLE } from '../graphql/getPeople';
 
@@ -23,11 +22,10 @@ const Characters: React.FC<PeopleProps> = () => {
 
 	return (
 		<React.Fragment>
-			<Container centerContent maxW="xl" py="4" mt="40">
+			<Container centerContent maxW="xl" py="4" mt="20">
 				<Heading as="h3" fontWeight={700} fontSize="lg" mr={2} mb={10}>
-					Search by character name{' '}
+					Starwars Characters
 				</Heading>
-				<Search mt={25} placeholder="search by character name" />
 				<Grid
 					templateColumns={{
 						base: 'repeat(1, 1fr)',
@@ -46,7 +44,7 @@ const Characters: React.FC<PeopleProps> = () => {
 					{data.people &&
 						data.people.hasMore &&
 						(isLoadingMore ? (
-							<div>Loading</div>
+							<Spinner color="green.50" />
 						) : (
 							<Flex justifyContent="center" mt={5}>
 								<Stack>
