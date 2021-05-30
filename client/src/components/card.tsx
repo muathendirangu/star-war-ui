@@ -1,19 +1,74 @@
 import React from 'react';
+import { Box, Badge, Button, Flex, Stack } from '@chakra-ui/react';
+import { MdMore } from 'react-icons/md';
 import * as PersonDataTypes from '../graphql/__generated__/PersonData';
 
 interface CardProps {
 	person: PersonDataTypes.PersonData;
 }
 const Card: React.FC<CardProps> = ({ person }) => {
+	const duration = 150;
 	const { name, height, mass, gender, homeworld } = person;
 	return (
-		<div>
-			<h1>{name ? name : ''}</h1>
-			<h2>{gender ? gender : ''}</h2>
-			<h3>{height ? height : ''}</h3>
-			<h4>{mass ? mass : ''}</h4>
-			<h5>{homeworld ? homeworld : ''}</h5>
-		</div>
+		<Box
+			maxW="xl"
+			w={[ '80vw', '40vw', '30vw', '17vw' ]}
+			borderWidth="1px"
+			borderRadius="lg"
+			overflow="hidden"
+			_hover={{ bg: 'primary.50', color: 'gray.500' }}
+			shadow="sm"
+			p={4}
+			cursor="pointer"
+			transition={`background-color ${duration}ms ease-in`}
+		>
+			<Box p="6" align="center">
+				{name ? (
+					<Box>
+						<h1> My name is</h1>
+						<Badge borderRadius="full" p={1} colorScheme="red">
+							{name}
+						</Badge>
+					</Box>
+				) : (
+					''
+				)}
+
+				<br />
+
+				<Box mt="1" as="h4" lineHeight="tight" isTruncated>
+					This is my gender{' '}
+					<Box as="span" fontWeight="semibold" color="gray.600" ml="2" fontSize="sm">
+						{gender}
+					</Box>
+				</Box>
+
+				<Box>
+					I belong to {homeworld}
+					<Box as="span" color="gray.600" ml="2" fontSize="sm">
+						planet
+					</Box>
+				</Box>
+
+				<Box>
+					I weigh around {mass} kgs and my height is {height}
+				</Box>
+				<Flex justifyContent="center" mt={5}>
+					<Stack>
+						<Button
+							as="a"
+							href={`/character/${name}`}
+							bg="primary.200"
+							color="gray.800"
+							_hover={{ bg: 'green.400', color: 'white' }}
+						>
+							{<MdMore />}
+							view more details
+						</Button>
+					</Stack>
+				</Flex>
+			</Box>
+		</Box>
 	);
 };
 

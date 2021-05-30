@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { ApolloClient, NormalizedCacheObject, ApolloProvider } from '@apollo/client';
+import { ChakraProvider } from '@chakra-ui/react';
+import starwarsTheme from '../src/themes/theme';
 import { cache } from './cache';
 import './index.css';
 import App from '../src/pages/index';
@@ -13,9 +15,11 @@ const client: ApolloClient<NormalizedCacheObject> = new ApolloClient({
 
 ReactDOM.render(
 	<ApolloProvider client={client}>
-		<React.StrictMode>
-			<App />
-		</React.StrictMode>
+		<ChakraProvider theme={starwarsTheme} resetCSS={true}>
+			<React.StrictMode>
+				<App />
+			</React.StrictMode>
+		</ChakraProvider>
 	</ApolloProvider>,
 	document.getElementById('root')
 );

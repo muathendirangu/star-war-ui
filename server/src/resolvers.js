@@ -1,7 +1,7 @@
 const { paginateResults } = require('./paginate');
 const resolvers = {
 	Query: {
-		people: async (_, { pageSize = 10, cursor }, { dataSources }) => {
+		people: async (_, { pageSize = 3, cursor }, { dataSources }) => {
 			const allPeople = await dataSources.starwarsAPI.getPeople();
 			const people = paginateResults({
 				cursor,
