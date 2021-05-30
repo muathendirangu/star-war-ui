@@ -4,10 +4,10 @@
 ```
 $ git clone https://github.com/muathendirangu/star-wars-code-challenge-solution.git
 ```
-- cd into the client directory
+- cd into the server directory
 ```
 
-$ cd client
+$ cd server
 
 ```
 - install dependencies
@@ -19,5 +19,5 @@ $ yarn install
 
 - Then execute the following app to run the app
 ```
-$ yarn start
+$ yarn start:dev
 ```
