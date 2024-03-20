@@ -2,7 +2,7 @@
 
 - clone the git repo
 ```
-$ git clone https://github.com/muathendirangu/star-wars-code-challenge-solution.git
+$ git clone https://github.com/muathendirangu/star-war-ui.git
 ```
 - cd into the client directory
 ```
