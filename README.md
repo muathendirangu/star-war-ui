@@ -1,2 +1,2 @@
-# custom star wars UI
-use the starwars api to create an apollo graphql server and A react SPA
+# A fullstack graphQL server and client application to showcase Starwars catalogue of movies
+
